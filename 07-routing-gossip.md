@@ -572,7 +572,8 @@ Query messages can be extended with optional fields that can help reduce the num
     * [`32`:`chain_hash`]
     * [`2`:`len`]
     * [`len`:`encoded_short_ids`]
-    * [`query_short_channel_ids_tlv`]
+    * [`var_int`:`tlv_len`]
+    * [`tlv_len`:`query_short_channel_ids_tlv`]
 
 1. tlv: `query_short_channel_ids_tlv`
 2. types:
@@ -662,7 +663,8 @@ timeouts.  It also causes a natural ratelimiting of queries.
     * [`32`:`chain_hash`]
     * [`4`:`first_blocknum`]
     * [`4`:`number_of_blocks`]
-    * [`query_channel_range_tlv`]
+    * [`var_int`:`tlv_len`]
+    * [`tlv_len`:`query_channel_range_tlv`]
 
 1. tlv: `query_channel_range_tlv`
 2. types:
@@ -677,7 +679,8 @@ timeouts.  It also causes a natural ratelimiting of queries.
     * [`1`:`complete`]
     * [`2`:`len`]
     * [`len`:`encoded_short_ids`]
-    * [`reply_channel_range_tlv`]
+    * [`var_int`:`tlv_len`]
+    * [`tlv_len`:`reply_channel_range_tlv`]
 
 1. tlv: `reply_channel_range_tlv`
 2. types:
