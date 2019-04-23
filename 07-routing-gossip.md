@@ -694,13 +694,13 @@ timeouts.  It also causes a natural ratelimiting of queries.
 
 1. subtype: `timestamps_type`
 2. data:
-       * [`4`:`timestamp_node_id_1`]
-       * [`4`:`timestamp_node_id_2`]
+       * [`4`:`timestamp_node_1`]
+       * [`4`:`timestamp_node_2`]
 
 1. subtype: `checksums_type`
 2. data:
-       * [`4`:`checksum_node_id_1`]
-       * [`4`:`checksum_node_id_2`]
+       * [`4`:`checksum_node_1`]
+       * [`4`:`checksum_node_2`]
 
 This allows a query for channels within specific blocks.
 
@@ -734,14 +734,14 @@ The receiver of `query_channel_range`:
       - For `timestamps`:
         - MUST set `encoding_type` as for `encoded_short_ids`
         - MUST encode one `timestamps_type` for each short_channel_id in `encoded_short_ids` as follows:
-          - set `timestamp_node_id_1` to the timestamp of the `channel_update` for `node_id_1`, or 0 if there was no `channel_update` from that node.
+          - set `timestamp_node_1` to the timestamp of the `channel_update` for `node_id_1`, or 0 if there was no `channel_update` from that node.
           - set `timestamp_node_id_2` to the timestamp of the `channel_update` for `node_id_2`, or 0 if there was no `channel_update` from that node.
     - if the `query_channel_range` contains `want_checksums`:
       - SHOULD append `reply_channel_range_tlv` containing `checksums`.
       - For `checksums`:
         - MUST include one `checksums_type` for each short_channel_id in `encoded_short_ids` as follows:
-          - set `checksum_node_id_1` to the checksum of the `channel_update` for `node_id_1`, or 0 if there was no `channel_update` from that node.
-          - set `checksum_node_id_1` to the checksum of the `channel_update` for `node_id_2`, or 0 if there was no `channel_update` from that node.
+          - set `checksum_node_1` to the checksum of the `channel_update` for `node_id_1`, or 0 if there was no `channel_update` from that node.
+          - set `checksum_node_1` to the checksum of the `channel_update` for `node_id_2`, or 0 if there was no `channel_update` from that node.
         - The checksum of a `channel_update` is the Adler32 checksum without its `signature` and `timestamp` fields.
 
 #### Rationale
